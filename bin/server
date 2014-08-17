@@ -1,0 +1,48 @@
+#!/usr/bin/env node
+
+var chalk = require('chalk');
+var e = require('co-exec');
+var fmt = require('util').format;
+var koa = require('koa');
+var logger = require('koa-logger');
+var serve = require('koa-static');
+
+/**
+ * Make a server that serves the static build and rebuilds on every request.
+ */
+
+var port = 8888;
+var server = koa()
+  .use(logger())
+  .use(exec('make build'))
+  .use(serve('build'));
+
+/**
+ * Listen.
+ */
+
+server.listen(port, function(){
+  console.log();
+  console.log();
+  console.log('  Success! The server is running at:');
+  console.log();
+  console.log('    ' + chalk.white(fmt('http://localhost:%s', port)));
+  console.log();
+  console.log('  You can make any changes you want to the content and then');
+  console.log('  just refresh the page to see what the changes look like!');
+  console.log();
+});
+
+/**
+ * Koa middleware to execute a `command`.
+ *
+ * @param {String} cmd
+ * @return {Generator}
+ */
+
+function exec(cmd) {
+  return function *(next) {
+    yield e(cmd);
+    yield next;
+  };
+}
