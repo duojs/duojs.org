@@ -1,0 +1,20 @@
+{
+  "name": "duojs.org",
+  "private": true,
+  "description": "The duojs.org website.",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^0.5.1",
+    "co-exec": "^1.1.0",
+    "duo": "^0.7.3",
+    "handlebars": "^2.0.0-alpha.4",
+    "koa": "^0.8.2",
+    "koa-logger": "^1.2.2",
+    "koa-static": "^1.4.6",
+    "metalsmith": "^0.9.0",
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-permalinks": "^0.3.2",
+    "metalsmith-templates": "^0.5.2",
+    "myth": "^1.1.1"
+  }
+}
