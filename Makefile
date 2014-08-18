@@ -7,11 +7,11 @@ myth = ./node_modules/.bin/myth
 # Source wildcards.
 #
 
-contents = $(shell find contents)
 css = $(shell find lib -name '*.css')
 html = $(shell find lib -name '*.html')
 js = $(shell find lib -name '*.js')
 json = $(shell find lib -name '*.json')
+src = $(shell find src)
 
 #
 # Default.
@@ -32,7 +32,7 @@ server: node_modules bin/server
 #
 
 # Build with Metalsmith, then build Duo-specific source.
-build: node_modules index.html $(contents)
+build: node_modules index.html $(src)
 	@$(metalsmith)
 	@$(MAKE) build/index.js
 	@$(MAKE) build/index.css
