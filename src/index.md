@@ -1,95 +1,76 @@
+
 ![duo](https://i.cloudup.com/uRfFwp-i4T.png)
 
-Duo is the next [Component](https://github.com/component/component). Built by active Component users and core Component contributors.
+Duo is a next-generation package manager for your frontend code base.
 
-Duo was created because the existing client-side packaging solutions are not sufficient for lean, consistent, client-side applications built and managed by a team.
-
-Duo makes the manifest optional, bundles only the code that you need, has built-in github versioning and supports source transforms.
-
-Our main goal for Duo was to blend the very best ideas from the [Component](https://github.com/component/component) and [Browserify](https://github.com/substack/node-browserify) package managers. We were also inspired by how [Go](http://go-lang.com/) imports dependencies.
 
 ## Philosophy
 
-Duo aims to grow with your application, optimizing the workflow along these three pillars:
+Duo was designed from the ground up to grow alongside your application, making your three main workflows incredibly simple:
 
-      i. creating proof of concepts
-     ii. writing components
-    iii. building web applications
+  1. creating quick proofs of concept
+  2. writing modular components
+  3. building large web applications
 
-### i. Proof of concepts
+Duo blends the very best ideas from the [Component](https://github.com/component/component), [Browserify](https://github.com/substack/node-browserify) and [Go](http://go-lang.com/) communities, to end up with a simple system that:
 
-As developers, we often need to test out an idea or isolate a bug. One of the big issues with existing package managers is that you cannot take your package manager with you without setting up whole lot of boilerplate. Duo removes this boilerplate and lets you include your packages right in your source code.
+  - has first-class support for Javascript, HTML and CSS
+  - exposes a unix-y command line interface
+  - pulls source directly from GitHub with semantic versioning
+  - supports source transforms, like Coffeescript or Sass
+  - does not require JSON manifests
+
+
+## I. Proofs of concept
+
+As developers, we often need to test out an idea or isolate a bug. One of the big issues with existing package managers is that you cannot use your package manager without a lot of boilerplate files like `package.json` or `component.json`. 
+
+Duo removes this boilerplate, letting you `require` packages straight from your source code:
 
 ```js
 var events = require('component/events');
 var uid = require('matthewmueller/uid');
 ```
 
-You can also include versions:
+You can also include versions, branches or paths:
 
 ```js
-require('component/reactive@0.14.x');
+var reactive = require('component/reactive@0.14.x');
+var tip = require('component/tip@master');
+var shortcuts = require('yields/shortcuts@0.0.1:/index.js');
 ```
 
-Or branches:
-
-```js
-require('component/tip@master');
-```
-
-Paths work too:
-
-```js
-require('yields/shortcuts@0.x:/index.js');
-```
-
-It also works with CSS:
+And the same goes for CSS with `import`:
 
 ```css
 @import "necolas/normalize.css";
 @import "twbs/bootstrap@v3.2.0:dist/css/bootstrap.css";
-
-body {
-  background: salmon;
-}
 ```
 
-When you're ready to build your file, run:
+You can even directly require `.html` or `.json` files:
+
+```js
+var template = require('./menu.html');
+var schema = require('./schema.json');
+```
+
+Duo will take care of the rest, transforming the `.html` into a Javascript string, and `.json` into a Javascript object.
+
+When you're ready to build your files, just run:
 
 ```
 $ duo in.js > out.js
 $ duo in.css > out.css
 ```
 
-Duo also supports `stdin`:
 
-```
-$ duo -t js < in.js > out.js
-```
+## II. Components
 
-> When you use `stdin` please be aware that Duo no longer knows where the file is coming from so it's best for simple scripts that don't use relative `require(...)`'s
-
-### ii. Components
-
-For any package manager to be successful, it needs to have a strong component ecosystem. Duo supports nearly all [Component packages](https://github.com/search?l=json&p=10&q=path%3A%2Fcomponent.json+component&ref=searchresults&type=Code) out of the box. Also, since Duo can load from paths, it supports nearly all [Bower packages](http://bower.io/search/) too. There are plans in the future to support Browserify packages as well with a plugin.
+For any package manager to be successful, it needs to have a strong component ecosystem. Duo supports nearly all of the existing [Component packages](https://github.com/search?l=json&p=10&q=path%3A%2Fcomponent.json+component&ref=searchresults&type=Code) out of the box. And, since Duo can load from paths, it supports nearly all of the [Bower packages](http://bower.io/search/) too. There are plans in the future to support Browserify packages as well.
 
 We're hoping to bridge the gap between all the different package managers and come up with a solution that works for everyone.
 
-To create a Duo component, you'll need a `component.json`:
-
-```json
-{
-  "name": "duo-component",
-  "version": "0.0.1",
-  "main": "index.js",
-  "dependencies": {
-    "component/tip": "1.x",
-    "jkroso/computed-style": "0.1.0"
-  }
-}
-```
-
-and if you have a component with `js` and `css`:
+To create a public Duo component, add a `component.json`:
 
 ```json
 {
@@ -106,57 +87,32 @@ and if you have a component with `js` and `css`:
 }
 ```
 
-If you're coming from the Component community, you'll notice that we no longer need to add `scripts`, `styles` or `templates`. Duo handles all of this for you, walking the dependency tree and including what you need without all the manual work. This also has the added benefit of only bundling what you actually use so you can keep your build size to a minimum.
-
-If you have an `html` template or `JSON` file that you'd like to include, simply require it. Duo automatically compiles and bundles the file as a javascript string using the [string-to-js](https://github.com/component/duo-string-to-js) plugin:
+And then publish your component on GitHub, so that others can install it by simply requiring it into their application:
 
 ```js
-var template = require('./tip.html');
+var thing = require('your/duo-component');
 ```
 
-Duo will take care of the rest, transforming the `html` into a javascript string. You can also include a `json` file:
+If you're coming from the Component community, you'll notice that we no longer need to add `scripts`, `styles` or `templates`. Duo handles all of this for you, walking the dependency tree like Browserify and including everything you need automatically, for both Javascript and CSS!
 
-```js
-var json = require('./component.json');
-```
 
-To build our component, we just need to run `duo`:
+## III. Web Applications
 
-```
-$ duo index.{js,css}
-```
+In order for a package manager to be truly useful, it needs to scale to accommodate building entire web applications. Once again, Duo makes this process seamless.
 
-By default, this will install all our dependencies to the `components/` directory and write our build files to the `build/` directory.
-
-### iii. Web Applications
-
-#### Multiple bundles
-
-In order for a package manager to be truly useful, it needs to scale it's workflow to accommodate big web applications. Once again, Duo makes this process seamless.
-
-Duo allows you to build multiple pages, granting you the flexibility to move between web applications and web pages without having one massive asset bundle.
-
-You can build multiple entries from the command line simply by passing more entries into `duo`:
+Duo allows for building multiple pages at once, so that you can split up your application into different bundles and take advantage of browser caching. To build from multiple entry files, just pass more than one entry into `duo`:
 
 ```
-$ duo app/admin/admin.js app/admin/admin.css
+$ duo app/libraries.js app/common.js app/home.js app/admin.js
 ```
 
 You can even use brace expansion:
 
 ```
-$ duo app/{homepage,admin}/index.{js,css}
+$ duo app/{home,about,admin}/index.{js,css}
 ```
 
-You can also specify a custom `build` directory:
-
-```
-$ duo app/{homepage,admin}/index.{js,css} out/
-```
-
-#### Assets
-
-If Duo discovers an asset like an image or font along the way, it will automatically symlink it to your `build/` directory. Say we have the following image in our CSS file
+If Duo discovers an asset like an image or font along the way, it will automatically include it in your `build/` directory. Say we have the following image in our CSS file:
 
 ```css
 @import "necolas/normalize";
@@ -176,207 +132,5 @@ body {
 }
 ```
 
-And symlink that file to `build/images/duo.png`, then up to you to expose `build/` on your web server.
+And symlink `duo.png` to `build/images/duo.png`, so that you can serve the entire `build/` directory from your web server.
 
-## API
-
-### `duo(root)`
-
-Initialize Duo with a `root`. All other path will be relative to the `root` including the build directory and the installation path.
-
-```js
-var duo = Duo(__dirname);
-```
-
-### `duo.entry(entry)`
-
-Specify the entry file that Duo will traverse and transform.
-
-```js
-var duo = Duo(__dirname)
-  .entry('main.js');
-```
-
-### `duo.src(src, [type])`
-
-Instead of specifying an entry, you may specify a `src` and a `type` for duo to build from.
-
-If no `type` is found, duo will try to detect the language type using [language-classifier](https://github.com/visionmedia/node-language-classifier). You should only omit the type on javascript and css files and not on higher-level languages like stylus or coffeescript.
-
-```js
-// javascript
-var duo = Duo(__dirname)
-  .src(js)
-
-// coffeescript
-var duo = Duo(__dirname)
-  .use(coffeescript)
-  .src(cs, 'coffee')
-```
-
-### `duo.global(name)`
-
-Attach the component to window object as name.
-
-```js
-var duo = Duo(__dirname)
-  .entry('tip.js')
-  .global('Tip');
-```
-
-### `duo.include(name, src)`
-
-Include a file with name and its stc  without requiring it. This is particularly useful for including runtimes.
-
-```js
-duo.include('jade-runtime', ...);
-```
-
-### `duo.development()`
-
-Set duo to development mode. This includes "development" dependencies and adds source maps.
-
-### `duo.token(token)`
-
-Set the github authentication token so you can load private repos. If you do not set this token, Duo will automatically try to load the `token` from your ~/.netrc.
-
-Here's how to create a GitHub token: https://github.com/settings/tokens/new
-
-### `duo.concurrency(n)`
-
-Set the maximum concurrency Duo uses to traverse. Defaults to: 10.
-
-### `duo.install(path)`
-
-Set the installation path of the dependencies. Defaults to `components/`.
-
-### `duo.assets(path)`
-
-Set the asset path of duo. Defaults to `build/`.
-
-### `duo.run([fn])`
-
-Run duo traversing and transforming from entry returning the bundle.
-
-If `fn` is specified `duo.run(fn)` will use fn as its callback but you can also run `duo.run()` as a generator.
-
-```js
-var src = yield duo.run();
-```
-
-```js
-duo.run(function(err, src) {
-  // ...
-});
-```
-
-### `duo.write([fn])`
-
-Run duo traversing and transforming from entry writing to "build/".
-
-If `fn` is specified `duo.write(fn)` will use fn as its callback but you can also run `duo.write()` as a generator.
-
-```js
-yield duo.write();
-```
-
-```js
-duo.write(function(err) {
-  // ...
-});
-```
-
-### `duo.use(fn|gen)`
-
-Apply a plugin to duo. You can pass a function or a generator. The signature is the following:
-
-```js
-function plugin(file, entry, [done]) {
-  // ...
-}
-```
-
-If you don't supply `done`, the plugin will be synchronous. The function can also be a generator:
-
-```js
-function *plugin(file, entry) {
-
-}
-```
-
-The `file` and `entry` are instances of [File](https://github.com/component/duo/blob/master/lib/file.js). If the file is an entry, then `file == entry`.
-
-The `file` & `entry` have the following properties:
-
-```js
-file.id    // relative path
-file.src   // file source
-file.type  // file extension
-file.root  // root path
-file.path  // full path
-file.entry // is this file an entry file?
-file.mtime // last modified timestamp
-```
-
-It's really easy to make Duo plugins. Here's a coffeescript plugin:
-
-```js
-var coffeescript = require('coffeescript');
-
-Duo(root)
-  .entry('index.coffee');
-  .use(coffee)
-  .run(fn)
-
-function coffee(file, entry) {
-  // ensure the file is a coffeescript file
-  if ('coffee' != file.type) return;
-
-  // ensure we're building a javascript file
-  if ('js' != entry.type) return;
-
-  // compile the coffeescript
-  file.src = coffee.compile(file.src);
-
-  // update the file type
-  file.type = 'js';
-}
-```
-
-Fortunately, Duo isn't going to force you to make a bunch of new plugins for all your favorite languages. Duo has support for [gulp plugins](http://gulpjs.com/plugins/)!
-
-Head over to [duo-gulp](https://github.com/duojs/duo-gulp) to see some examples.
-
-## FAQ
-
-### What about Component 1.x?
-
-Duo development began back in April when the state of Component 1.x was uncertain.
-
-While the release of Component 1.x solved a lot of the initial gripes with earlier versions of Component, in the end we wanted a more radical departure from Component that borrowed some of the good ideas from Browserify.
-
-### What about Browserify?
-
-Browserify is a great project and if it's working well for you then you should keep using it.
-
-Duo's scope is much more ambitious. Duo aims to be your go-to asset pipeline for Node.js. Much in the same way that [Sprockets](https://github.com/sstephenson/sprockets) is for the Ruby community.
-
-Furthermore, Browserify's dependence on NPM to deliver it's packages leads to some big issues:
-
-- naming is a bigger hassle on the client-side (how many different kinds of tooltips are there?)
-- private modules require a private NPM server
-- ensuring your team has push access to each module is always a pain. If someone leaves, this becomes even harder.
-
-By using Github as your package manager all of these issues just disappear.
-
-## Community
-
-- join us at `#duojs` on freenode
-- [Mailing List](https://groups.google.com/forum/#!forum/duojs)
-
-## Authors
-
-- [Matthew Mueller](https://github.com/MatthewMueller)
-- [Amir Abu Shareb](https://github.com/yields)
-
-... plus many more wonderful contributors!
