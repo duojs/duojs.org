@@ -1,0 +1,14 @@
+
+/**
+ * Code highlighting.
+ */
+
+.Highlight-at-rule,
+.Highlight-keyword {
+  color: var(--purple);
+}
+
+.Highlight-string,
+.Highlight-number {
+  color: var(--orange);
+}

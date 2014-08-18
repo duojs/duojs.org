@@ -1,8 +1,4 @@
 
-![duo](https://i.cloudup.com/uRfFwp-i4T.png)
-
-Duo is a next-generation package manager for your frontend code base.
-
 
 ## Philosophy
 

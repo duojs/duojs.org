@@ -1,0 +1,45 @@
+
+article {
+  max-width: 33em;
+  margin: 100% auto 10em;
+}
+
+ol {
+  list-style-type: upper-roman;
+}
+
+a {
+  color: var(--purple);
+}
+
+a:hover {
+  color: var(--dark-purple);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -1px;
+}
+
+h2 {
+  font-size: 1.75em;
+  font-weight: 400;
+  padding-top: 4em;
+}
+
+h3 {
+  font-size: 1.25em;
+  font-weight: 400;
+  padding-top: 1em;
+}
+
+pre {
+  font-size: .7em;
+  padding: 1.5em;
+  border-left: 4px solid #eee;
+  background-color: #fafafa;
+}

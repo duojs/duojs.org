@@ -1,4 +1,8 @@
 
+/**
+ * Dependencies.
+ */
+
 @import 'necolas/normalize.css';
 
 /**
@@ -24,61 +28,10 @@ html {
   color: #444;
 }
 
-ol {
-  list-style-type: upper-roman;
-}
-
-a {
-  color: var(--purple);
-}
-
-a:hover {
-  color: var(--dark-purple);
-}
-
-article {
-  max-width: 33em;
-  margin: 0 auto 10em;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  letter-spacing: -1px;
-}
-
-h2 {
-  font-size: 1.75em;
-  font-weight: 400;
-  padding-top: 4em;
-}
-
-h3 {
-  font-size: 1.25em;
-  font-weight: 400;
-  padding-top: 1em;
-}
-
-pre {
-  font-size: .7em;
-  padding: 1.5em;
-  border-left: 4px solid #eee;
-  background-color: #fafafa;
-}
-
 /**
- * Code highlighting.
+ * Locals.
  */
 
-.Highlight-at-rule,
-.Highlight-keyword {
-  color: var(--purple);
-}
-
-.Highlight-string,
-.Highlight-number {
-  color: var(--orange);
-}
+@import './lib/article';
+@import './lib/header';
+@import './lib/highlight';
