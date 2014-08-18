@@ -12,7 +12,7 @@ Duo was designed from the ground up to grow alongside your application, making y
   2. writing modular components
   3. building large web applications
 
-Duo blends the very best ideas from the [Component](https://github.com/component/component), [Browserify](https://github.com/substack/node-browserify) and [Go](http://go-lang.com/) communities, to end up with simple system that:
+Duo blends the very best ideas from the [Component](https://github.com/component/component), [Browserify](https://github.com/substack/node-browserify) and [Go](http://go-lang.com/) communities, to end up with a simple system that:
 
   - has first-class support for Javascript, HTML and CSS
   - exposes a unix-y command line interface
