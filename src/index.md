@@ -6,7 +6,7 @@ Duo is a next-generation package manager for your frontend code base.
 
 ## Philosophy
 
-Duo was designed from the ground-up to grow alongside your application, making your three main workflows incredibly simple:
+Duo was designed from the ground up to grow alongside your application, making your three main workflows incredibly simple:
 
   1. creating quick proofs of concept
   2. writing modular components
@@ -14,11 +14,11 @@ Duo was designed from the ground-up to grow alongside your application, making y
 
 Duo blends the very best ideas from the [Component](https://github.com/component/component), [Browserify](https://github.com/substack/node-browserify) and [Go](http://go-lang.com/) communities, to end up with simple system that:
 
-  - has first-class support for Javascript, HTML and CSS.
-  - exposes a unix-y command line interface.
-  - pulls source directly from GitHub with semantic versioning.
-  - supports source transforms, like Coffeescript or Sass.
-  - does not require JSON manifests.
+  - has first-class support for Javascript, HTML and CSS
+  - exposes a unix-y command line interface
+  - pulls source directly from GitHub with semantic versioning
+  - supports source transforms, like Coffeescript or Sass
+  - does not require JSON manifests
 
 
 ## I. Proofs of concept
