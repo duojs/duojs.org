@@ -17,7 +17,7 @@ Duo blends the very best ideas from the [Component](https://github.com/component
   - does not require JSON manifests
 
 
-## I. Proofs of concept
+## I. Proofs of Concept
 
 As developers, we often need to test out an idea or isolate a bug. One of the big issues with existing package managers is that you cannot use your package manager without a lot of boilerplate files like `package.json` or `component.json`. 
 
@@ -39,8 +39,8 @@ var shortcuts = require('yields/shortcuts@0.0.1:/index.js');
 And the same goes for CSS with `import`:
 
 ```css
-@import "necolas/normalize.css";
-@import "twbs/bootstrap@v3.2.0:dist/css/bootstrap.css";
+@import 'necolas/normalize.css';
+@import 'twbs/bootstrap@v3.2.0:dist/css/bootstrap.css';
 ```
 
 You can even directly require `.html` or `.json` files:
@@ -62,20 +62,17 @@ $ duo in.css > out.css
 
 ## II. Components
 
-For any package manager to be successful, it needs to have a strong component ecosystem. Duo supports nearly all of the existing [Component packages](https://github.com/search?l=json&p=10&q=path%3A%2Fcomponent.json+component&ref=searchresults&type=Code) out of the box. And, since Duo can load from paths, it supports nearly all of the [Bower packages](http://bower.io/search/) too. There are plans in the future to support Browserify packages as well.
+A successful package manager needs to have a strong component ecosystem. Duo supports all of the existing [Component packages](https://github.com/search?l=json&p=10&q=path%3A%2Fcomponent.json+component&ref=searchresults&type=Code) out of the box. And, since Duo can load from paths, it supports all [Bower packages](http://bower.io/search/) too. _There are even plans to support Browserify packages as well._
 
 We're hoping to bridge the gap between all the different package managers and come up with a solution that works for everyone.
 
-To create a public Duo component, add a `component.json`:
+To create your own public component, just add a `component.json` to your repository:
 
 ```json
 {
   "name": "duo-component",
   "version": "0.0.1",
-  "main": {
-    "js": "index.js",
-    "css": "index.css"
-  }
+  "main": "index.js",
   "dependencies": {
     "component/tip": "1.x",
     "jkroso/computed-style": "0.1.0"
@@ -111,7 +108,7 @@ $ duo app/{home,about,admin}/index.{js,css}
 If Duo discovers an asset like an image or font along the way, it will automatically include it in your `build/` directory. Say we have the following image in our CSS file:
 
 ```css
-@import "necolas/normalize";
+@import 'necolas/normalize';
 
 body {
   background: url('./images/duo.png');
@@ -121,7 +118,7 @@ body {
 Duo will transform this file to:
 
 ```css
-@import "necolas/normalize";
+@import 'necolas/normalize';
 
 body {
   background: url('/images/duo.png');
