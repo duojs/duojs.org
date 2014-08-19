@@ -4,6 +4,7 @@
  */
 
 @import 'necolas/normalize.css';
+@import 'duojs/logo';
 
 /**
  * Variables.
@@ -26,6 +27,15 @@
 html {
   font: 300 21px/1.4 'Roboto', sans-serif;
   color: #444;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  top: 3em;
+  margin-top: 100%;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,.1);
 }
 
 /**

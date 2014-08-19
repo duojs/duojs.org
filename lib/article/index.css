@@ -1,7 +1,8 @@
 
 article {
-  max-width: 33em;
-  margin: 100% auto 10em;
+  max-width: 30em;
+  padding: 10em 2em;
+  margin: 0 auto;
 }
 
 ol {
@@ -23,11 +24,15 @@ h4,
 h5,
 h6 {
   letter-spacing: -1px;
+  text-align: center;
 }
 
 h2 {
   font-size: 1.75em;
   font-weight: 400;
+}
+
+* + h2 {
   padding-top: 4em;
 }
 
@@ -42,4 +47,13 @@ pre {
   padding: 1.5em;
   border-left: 4px solid #eee;
   background-color: #fafafa;
+}
+
+p > code {
+  position: relative;
+  top: -1px;
+  padding: .25em .35em;
+  font-size: .75em;
+  background-color: #f7f7f7;
+  border-radius: .2em;
 }
