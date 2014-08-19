@@ -4,20 +4,22 @@
  */
 
 @import 'necolas/normalize.css';
-@import 'duojs/logo';
 
 /**
  * Variables.
  */
 
 :root {
-  --orange: #FF8A52;
+  --white: #FEFFF8;
+  --dark-white: #FEFAF1;
+  --darker-white: #F5F2EC;
 
-  --pink: #DA6F92;
+  --green: #3FA369;
+  --brown: #B18840;
 
-  --purple: #6453BA;
-  --light-purple: color(var(--purple)) lighten(50%));
-  --dark-purple: color(var(--purple)) darken(50%));
+  --black: #010921;
+  --light-black: #273C52;
+  --lighter-black: #596C80;
 }
 
 /**
@@ -26,16 +28,8 @@
 
 html {
   font: 300 21px/1.4 'Roboto', sans-serif;
-  color: #444;
-}
-
-main {
-  position: relative;
-  z-index: 1;
-  top: 3em;
-  margin-top: 100%;
-  background-color: white;
-  box-shadow: 0 4px 10px rgba(0,0,0,.1);
+  color: var(--light-black);
+  background-color: var(--white);
 }
 
 /**
@@ -43,5 +37,6 @@ main {
  */
 
 @import './lib/article';
+@import './lib/footer';
 @import './lib/header';
 @import './lib/highlight';

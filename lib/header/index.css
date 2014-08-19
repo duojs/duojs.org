@@ -3,61 +3,83 @@
  * Dependencies.
  */
 
-/**@import 'duojs/logo';
+@import 'duojs/logo';
+@import '../blanch';
 
 /**
  * Header.
  *
- *   .Header[.Header--collapsed]
+ *   .Header
  *     .Header-title
  *     .Header-search
- *     .Header-description
- *       .Header-description-title
- *       .Header-description-body
+ *     .Header-github
  */
 
 .Header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  min-height: 3em;
+  position: relative;
+  overflow: hidden;
   text-align: center;
-  background: url('./background.jpg') top center no-repeat;
+  background: url('./background.jpg') center center no-repeat;
   background-size: cover;
   color: white;
+  padding: 12em 2em 20em;
 }
 
-.Header--collapsed {
-  height: 0;
-}
-
-.Header-search {
-  display: none; /* TODO */
+.Header::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, var(--white));
 }
 
 .Header-title {
-  position: absolute;
-  top: 30%;
-  left: 50%;
   font-size: 5em;
-  margin-left: -1.5em; /* horizontally centered */
 }
 
-.Header-description {
-  position: absolute;
-  bottom: 20%;
-  left: 0;
-  right: 0;
+.Header-tagline {
+  display: block;
+  margin-top: 2em;
+  font-family: 'Blanch Condensed';
+  font-size: 2.3em;
+  max-width: 10em;
+  margin-right: auto;
+  margin-left: auto;
+  line-height: 1;
+  text-shadow: 0 1px color(var(--darker-white) shade(25%));
+}
+
+.Header-github {
+  display: block;
+  position: fixed;
+  z-index: 100;
+  top: 1.5em;
+  right: -6em;
+  padding: .4em 1em;
+  width: 15em;
   text-align: center;
-  font-size: 1.2em;
+  background-color: var(--green);
+  text-transform: uppercase;
+  font-family: 'Blanch Condensed';
+  font-size: .9em;
+  color: var(--white);
+  text-decoration: none;
+  white-space: nowrap;
+  transform: rotate(45deg);
+  transform-origin: 50% 50%;
+  transition: background-color .2s;
 }
 
-.Header-description-title {
-  margin-bottom: .1em;
+.Header-github:hover {
+  background-color: color(var(--green) shade(10%));
+  color: var(--white);
 }
 
-.Header-description-body {
-  font-style: italic;
+@media (min-width: 768px) {
+  .Header-github {
+    top: 2.5em;
+    right: -4.75em;
+  }
 }

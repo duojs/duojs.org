@@ -5,10 +5,14 @@
 
 .Highlight-at-rule,
 .Highlight-keyword {
-  color: var(--purple);
+  color: var(--green);
 }
 
 .Highlight-string,
 .Highlight-number {
-  color: var(--orange);
+  color: var(--brown);
+}
+
+.Highlight-operator {
+  color: var(--lighter-black);
 }

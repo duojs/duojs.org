@@ -1,0 +1,11 @@
+
+@font-face {
+  font-family: 'Blanch Condensed';
+  src: url('./blanch-condensed-webfont.eot');
+  src: url('./blanch-condensed-webfont.eot?#iefix') format('embedded-opentype'),
+       url('./blanch-condensed-webfont.woff') format('woff'),
+       url('./blanch-condensed-webfont.ttf') format('truetype'),
+       url('./blanch-condensed-webfont.svg#blanchcondensed') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
