@@ -4,7 +4,13 @@
 
 Duo is a next-generation package manager that blends some of the best ideas from [Component](https://github.com/component/component), [Browserify](https://github.com/substack/node-browserify) and [Go](http://go-lang.com/) to make writing front-end code painless.
 
-To start just write normal Javascript, requiring dependencies straight from the file system or from GitHub as you need them:
+Install Duo straight from npm with:
+
+```
+$ npm install -g duo
+```
+
+To get started just write normal Javascript, requiring dependencies straight from the file system or from GitHub as you need them:
 
 ```js
 var uid = require('matthewmueller/uid');
@@ -43,7 +49,7 @@ Then bundle up your CSS with `duo`:
 $ duo index.css > build.css
 ```
 
-And add your stylesheet to your page!
+And add your bundled-up stylesheet to your page!
 
 ```html
 <link rel="stylesheet" href="build.css">
