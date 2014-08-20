@@ -7,12 +7,13 @@
 @import '../blanch';
 
 /**
- * Header.
+ * Site header.
  *
  *   .Header
  *     .Header-title
- *     .Header-search
+ *     .Header-tagline
  *     .Header-github
+ *     .Header-search
  */
 
 .Header {
@@ -22,7 +23,7 @@
   background: url('./background.jpg') center center no-repeat;
   background-size: cover;
   color: white;
-  padding: 12em 2em 20em;
+  padding: 0 2em 20em;
 }
 
 .Header::after {
@@ -35,9 +36,18 @@
   background: linear-gradient(to bottom, transparent, var(--white));
 }
 
+/**
+ * Title.
+ */
+
 .Header-title {
+  margin-top: 2em;
   font-size: 5em;
 }
+
+/**
+ * Tagline.
+ */
 
 .Header-tagline {
   display: block;
@@ -51,6 +61,10 @@
   text-shadow: 0 1px color(var(--darker-white) shade(25%));
 }
 
+/**
+ * GitHub.
+ */
+
 .Header-github {
   display: block;
   position: fixed;
@@ -60,7 +74,7 @@
   padding: .4em 1em;
   width: 15em;
   text-align: center;
-  background-color: var(--green);
+  background: var(--green);
   text-transform: uppercase;
   font-family: 'Blanch Condensed';
   font-size: .9em;
@@ -73,7 +87,7 @@
 }
 
 .Header-github:hover {
-  background-color: color(var(--green) shade(10%));
+  background: color(var(--green) shade(10%));
   color: var(--white);
 }
 
@@ -82,4 +96,37 @@
     top: 2.5em;
     right: -4.75em;
   }
+}
+
+/**
+ * Search.
+ */
+
+.Header-search {
+  visibility: hidden; /* hidden for now until we have a registry */
+  padding: 1em 2em;
+}
+
+.Header-search-input {
+  font-size: .75em;
+  width: 19em;
+  padding: .5em 1em;
+  background: rgba(255, 255, 255, .15);
+  border: 3px solid rgba(255, 255, 255, .5);
+  border-radius: 1000px;
+  transition: border-color .2s, background-color .2s;
+}
+
+.Header-search-input:hover {
+  border-color: rgba(255, 255, 255, .7);
+}
+
+.Header-search-input:focus {
+  background-color: rgba(255, 255, 255, .3);
+  border-color: white;
+  outline: none;
+}
+
+.Header-search-input::placeholder {
+  color: rgba(255, 255, 255, .5);
 }
