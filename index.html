@@ -17,7 +17,7 @@
     </header>
     <main>
       <article><h2 id="getting-started">Getting Started</h2>
-<p>Duo is a next-generation package manager that blends some of the best ideas from <a href="https://github.com/component/component">Component</a>, <a href="https://github.com/substack/node-browserify">Browserify</a> and <a href="http://go-lang.com/">Go</a> to make writing front-end code painless.</p>
+<p>Duo is a next-generation package manager that blends the best ideas from <a href="https://github.com/component/component">Component</a>, <a href="https://github.com/substack/node-browserify">Browserify</a> and <a href="http://go-lang.com/">Go</a> to make organizing and writing front-end code quick and painless.</p>
 <p>Install Duo straight from npm with:</p>
 <pre><code>$ npm install -g duo
 </code></pre><p>To get started just write normal Javascript, requiring dependencies straight from the file system or from GitHub as you need them:</p>
@@ -45,23 +45,23 @@ body {
 </code></pre><p>And add your bundled-up stylesheet to your page!</p>
 <pre><code class="lang-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;build.css&quot;&gt;
 </code></pre>
-<h2 id="philosophy">Philosophy</h2>
-<p>Duo blends the very best ideas from the <a href="https://github.com/component/component">Component</a>, <a href="https://github.com/substack/node-browserify">Browserify</a> and <a href="http://go-lang.com/">Go</a> communities, into a simple system that:</p>
-<ul>
+<h2 id="features">Features</h2>
+<ol>
 <li>has first-class support for Javascript, HTML and CSS</li>
 <li>exposes a unix-y command line interface</li>
 <li>pulls source directly from GitHub with semantic versioning</li>
 <li>supports source transforms, like Coffeescript or Sass</li>
-<li>does not require JSON manifests</li>
-</ul>
+<li>does not require a manifest</li>
+</ol>
+<h2 id="philosophy">Philosophy</h2>
 <p>Duo was designed from the ground up to grow alongside your application, making your three main workflows incredibly simple:</p>
 <ol>
-<li>creating quick proofs of concept</li>
+<li>creating quick proof of concepts</li>
 <li>writing modular components</li>
 <li>building large web applications</li>
 </ol>
-<h2 id="i-proofs-of-concept">I. Proofs of Concept</h2>
-<p>As developers, we often need to test out an idea or isolate a bug. One of the big issues with existing package managers is that you cannot use your package manager without a lot of boilerplate files like <code>package.json</code> or <code>component.json</code>. </p>
+<h2 id="i-proof-of-concepts">I. Proof of Concepts</h2>
+<p>As developers, we often need to test out an idea or isolate a bug. One of the big issues with existing package managers is that you cannot use your package manager without a lot of boilerplate files like <code>package.json</code> or <code>component.json</code>.</p>
 <p>Duo removes this boilerplate, letting you <code>require</code> packages straight from your source code:</p>
 <pre><code class="lang-js">var events = require(&#39;component/events&#39;);
 var uid = require(&#39;matthewmueller/uid&#39;);
@@ -146,7 +146,7 @@ body {
       <a class="logo"
          data-logo="Lapwing Labs"
          data-color="white"
-         href="https://lapwinglabs.com"><span>Lapwing Labs</span></a>
+         href="http://lapwinglabs.com"><span>Lapwing Labs</span></a>
       <p>and</p>
       <a class="logo"
          data-logo="Segment.io"

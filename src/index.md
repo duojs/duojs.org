@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-Duo is a next-generation package manager that blends some of the best ideas from [Component](https://github.com/component/component), [Browserify](https://github.com/substack/node-browserify) and [Go](http://go-lang.com/) to make writing front-end code painless.
+Duo is a next-generation package manager that blends the best ideas from [Component](https://github.com/component/component), [Browserify](https://github.com/substack/node-browserify) and [Go](http://go-lang.com/) to make organizing and writing front-end code quick and painless.
 
 Install Duo straight from npm with:
 
@@ -55,27 +55,26 @@ And add your bundled-up stylesheet to your page!
 <link rel="stylesheet" href="build.css">
 ```
 
+## Features
+
+  1. has first-class support for Javascript, HTML and CSS
+  2. exposes a unix-y command line interface
+  3. pulls source directly from GitHub with semantic versioning
+  4. supports source transforms, like Coffeescript or Sass
+  5. does not require a manifest
 
 ## Philosophy
 
-Duo blends the very best ideas from the [Component](https://github.com/component/component), [Browserify](https://github.com/substack/node-browserify) and [Go](http://go-lang.com/) communities, into a simple system that:
-
-  - has first-class support for Javascript, HTML and CSS
-  - exposes a unix-y command line interface
-  - pulls source directly from GitHub with semantic versioning
-  - supports source transforms, like Coffeescript or Sass
-  - does not require JSON manifests
-
 Duo was designed from the ground up to grow alongside your application, making your three main workflows incredibly simple:
 
-  1. creating quick proofs of concept
+  1. creating quick proof of concepts
   2. writing modular components
   3. building large web applications
 
 
-## I. Proofs of Concept
+## I. Proof of Concepts
 
-As developers, we often need to test out an idea or isolate a bug. One of the big issues with existing package managers is that you cannot use your package manager without a lot of boilerplate files like `package.json` or `component.json`. 
+As developers, we often need to test out an idea or isolate a bug. One of the big issues with existing package managers is that you cannot use your package manager without a lot of boilerplate files like `package.json` or `component.json`.
 
 Duo removes this boilerplate, letting you `require` packages straight from your source code:
 
