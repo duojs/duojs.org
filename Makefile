@@ -35,7 +35,7 @@ server: node_modules bin/server
 build: build-metalsmith build/index.js build/index.css
 
 # Build the Metalsmith source.
-build-metalsmith: node_modules index.html $(src)
+build-metalsmith: node_modules $(src)
 	@$(metalsmith)
 	@$(MAKE) build/index.js
 	@$(MAKE) build/index.css
