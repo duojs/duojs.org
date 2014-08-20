@@ -107,8 +107,8 @@ $ duo in.css &gt; out.css
 <p>If you’re coming from the Component community, you’ll notice that we no longer need to add <code>scripts</code>, <code>styles</code> or <code>templates</code>. Duo handles all of this for you, walking the dependency tree like Browserify and including everything you need automatically, for both Javascript and CSS!</p>
 <h2 id="iii-web-applications">III. Web Applications</h2>
 <p>In order for a package manager to be truly useful, it needs to scale to accommodate building entire web applications. Once again, Duo makes this process seamless.</p>
-<p>Duo allows for building multiple pages at once, so that you can split up your application into different bundles and take advantage of browser caching. To build from multiple entry files, just pass more than one entry into <code>duo</code>:</p>
-<pre><code>$ duo app/libraries.js app/common.js app/home.js app/admin.js
+<p>Duo allows for building multiple pages at once, so that you can split up your application into different bundles and keep your page assets slim. To build from multiple entry files, just pass more than one entry into <code>duo</code>:</p>
+<pre><code>$ duo app/home.js app/about.js app/admin.js
 </code></pre><p>You can even use brace expansion:</p>
 <pre><code>$ duo app/{home,about,admin}/index.{js,css}
 </code></pre><p>If Duo discovers an asset like an image or font along the way, it will automatically include it in your <code>build/</code> directory. Say we have the following image in our CSS file:</p>
@@ -118,14 +118,7 @@ body {
   background: url(&#39;./images/duo.png&#39;);
 }
 </code></pre>
-<p>Duo will transform this file to:</p>
-<pre><code class="lang-css">@import &#39;necolas/normalize.css&#39;;
-
-body {
-  background: url(&#39;/images/duo.png&#39;);
-}
-</code></pre>
-<p>And symlink <code>duo.png</code> to <code>build/images/duo.png</code>, so that you can serve the entire <code>build/</code> directory from your web server.</p>
+<p>Duo will symlink <code>duo.png</code> to <code>build/images/duo.png</code>, so that you can serve the entire <code>build/</code> directory from your web server.</p>
 <h2 id="examples">Examples</h2>
 <p>To see some more complex examples of Duo in the wild, check out any of these repositories on GitHub:</p>
 <ul>

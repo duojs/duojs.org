@@ -148,10 +148,10 @@ If you're coming from the Component community, you'll notice that we no longer n
 
 In order for a package manager to be truly useful, it needs to scale to accommodate building entire web applications. Once again, Duo makes this process seamless.
 
-Duo allows for building multiple pages at once, so that you can split up your application into different bundles and take advantage of browser caching. To build from multiple entry files, just pass more than one entry into `duo`:
+Duo allows for building multiple pages at once, so that you can split up your application into different bundles and keep your page assets slim. To build from multiple entry files, just pass more than one entry into `duo`:
 
 ```
-$ duo app/libraries.js app/common.js app/home.js app/admin.js
+$ duo app/home.js app/about.js app/admin.js
 ```
 
 You can even use brace expansion:
@@ -170,17 +170,7 @@ body {
 }
 ```
 
-Duo will transform this file to:
-
-```css
-@import 'necolas/normalize.css';
-
-body {
-  background: url('/images/duo.png');
-}
-```
-
-And symlink `duo.png` to `build/images/duo.png`, so that you can serve the entire `build/` directory from your web server.
+Duo will symlink `duo.png` to `build/images/duo.png`, so that you can serve the entire `build/` directory from your web server.
 
 
 ## Examples
