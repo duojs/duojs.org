@@ -118,7 +118,7 @@ $ duo in.css > out.css
 
 ## II. Components
 
-A successful package manager needs to have a strong component ecosystem. Duo supports all of the existing [Component packages](https://github.com/search?l=json&p=10&q=path%3A%2Fcomponent.json+component&ref=searchresults&type=Code) out of the box. And, since Duo can load from paths, it supports all [Bower packages](http://bower.io/search/) too. _There are even plans to support Browserify packages as well._
+A successful package manager needs to have a strong component ecosystem. Duo supports all of the existing [Component packages](https://github.com/component/component/wiki/Components) out of the box. And, since Duo can load from paths, it supports all [Bower packages](http://bower.io/search/) too. _There are even plans to support [Browserify packages](https://www.npmjs.org/browse/keyword/browser) as well._
 
 We're hoping to bridge the gap between all the different package managers and come up with a solution that works for everyone.
 
