@@ -6,6 +6,8 @@ var fmt = require('util').format;
 var koa = require('koa');
 var logger = require('koa-logger');
 var serve = require('koa-static');
+var join = require('path').join;
+var root = join(__dirname, '..');
 
 /**
  * Make a server that serves the static build and rebuilds on every request.
@@ -15,7 +17,7 @@ var port = 8888;
 var server = koa()
   .use(logger())
   .use(exec('make build'))
-  .use(serve('.'));
+  .use(serve(root));
 
 /**
  * Listen.

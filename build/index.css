@@ -764,12 +764,13 @@ p > code {
 }
 
 /**
- * Header.
+ * Site header.
  *
  *   .Header
  *     .Header-title
- *     .Header-search
+ *     .Header-tagline
  *     .Header-github
+ *     .Header-search
  */
 
 .Header {
@@ -779,7 +780,7 @@ p > code {
   background: url('lib/header/background.jpg') center center no-repeat;
   background-size: cover;
   color: white;
-  padding: 12em 2em 20em;
+  padding: 0 2em 20em;
 }
 
 .Header::after {
@@ -793,9 +794,18 @@ p > code {
   background: linear-gradient(to bottom, transparent, #FEFFF8);
 }
 
+/**
+ * Title.
+ */
+
 .Header-title {
+  margin-top: 2em;
   font-size: 5em;
 }
+
+/**
+ * Tagline.
+ */
 
 .Header-tagline {
   display: block;
@@ -809,6 +819,10 @@ p > code {
   text-shadow: 0 1px rgb(184, 182, 177);
 }
 
+/**
+ * GitHub.
+ */
+
 .Header-github {
   display: block;
   position: fixed;
@@ -818,7 +832,7 @@ p > code {
   padding: .4em 1em;
   width: 15em;
   text-align: center;
-  background-color: #3FA369;
+  background: #3FA369;
   text-transform: uppercase;
   font-family: 'Blanch Condensed';
   font-size: .9em;
@@ -836,7 +850,7 @@ p > code {
 }
 
 .Header-github:hover {
-  background-color: rgb(57, 147, 95);
+  background: rgb(57, 147, 95);
   color: #FEFFF8;
 }
 
@@ -845,6 +859,53 @@ p > code {
     top: 2.5em;
     right: -4.75em;
   }
+}
+
+/**
+ * Search.
+ */
+
+.Header-search {
+  visibility: hidden;
+  /* hidden for now until we have a registry */
+  padding: 1em 2em;
+}
+
+.Header-search-input {
+  font-size: .75em;
+  width: 19em;
+  padding: .5em 1em;
+  background: rgba(255, 255, 255, .15);
+  border: 3px solid rgba(255, 255, 255, .5);
+  border-radius: 1000px;
+  -webkit-transition: border-color .2s, background-color .2s;
+  transition: border-color .2s, background-color .2s;
+}
+
+.Header-search-input:hover {
+  border-color: rgba(255, 255, 255, .7);
+}
+
+.Header-search-input:focus {
+  background-color: rgba(255, 255, 255, .3);
+  border-color: white;
+  outline: none;
+}
+
+.Header-search-input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, .5);
+}
+
+.Header-search-input::-moz-placeholder {
+  color: rgba(255, 255, 255, .5);
+}
+
+.Header-search-input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, .5);
+}
+
+.Header-search-input::placeholder {
+  color: rgba(255, 255, 255, .5);
 }
 
 /**
