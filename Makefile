@@ -36,6 +36,7 @@ build: build-metalsmith build/index.js build/index.css
 
 # Build the Metalsmith source.
 build-metalsmith: node_modules $(src)
+	@mkdir -p build
 	@$(metalsmith)
 	@$(MAKE) build/index.js
 	@$(MAKE) build/index.css
@@ -46,7 +47,7 @@ build/index.js: node_modules index.js $(js) $(html) $(json)
 
 # Build the CSS source with Duo and Myth.
 build/index.css: node_modules index.css $(css)
-	@$(duo) index.css | $(myth) > build/index.css
+	@$(duo) -c index.css | $(myth) > build/index.css
 
 node_modules: package.json
 	@npm install
@@ -56,4 +57,7 @@ node_modules: package.json
 # Phony targets.
 #
 
-.PHONY: server
+clean:
+	rm -rf build components
+
+.PHONY: server clean

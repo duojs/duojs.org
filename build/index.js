@@ -506,6 +506,12 @@ var grammar = {};
 grammar.comment = /\/\*[\w\W]*?\*\//m;
 
 /**
+ * Strings.
+ */
+
+grammar.string = /("|').*?\1/;
+
+/**
  * @-rules.
  */
 
@@ -525,12 +531,6 @@ grammar.selector = {
     punctuation: /\{/
   }
 };
-
-/**
- * Strings.
- */
-
-grammar.string = /("|').*?\1/;
 
 /**
  * Functions.
