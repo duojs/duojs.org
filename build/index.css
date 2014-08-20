@@ -468,11 +468,11 @@ html {
 
 @font-face {
   font-family: 'Blanch Condensed';
-  src: url('/lib/blanch/blanch-condensed-webfont.eot');
-  src: url('/lib/blanch/blanch-condensed-webfont.eot') format('embedded-opentype'),
-       url('/lib/blanch/blanch-condensed-webfont.woff') format('woff'),
-       url('/lib/blanch/blanch-condensed-webfont.ttf') format('truetype'),
-       url('/lib/blanch/blanch-condensed-webfont.svg') format('svg');
+  src: url('lib/blanch/blanch-condensed-webfont.eot');
+  src: url('lib/blanch/blanch-condensed-webfont.eot') format('embedded-opentype'),
+       url('lib/blanch/blanch-condensed-webfont.woff') format('woff'),
+       url('lib/blanch/blanch-condensed-webfont.ttf') format('truetype'),
+       url('lib/blanch/blanch-condensed-webfont.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -557,16 +557,16 @@ p > code {
 }
 
 .logo[data-logo="Segment.io"] > * {
-  background-image: url(/components/segmentio-logo@1.1.0/images/logo.svg);
+  background-image: url(components/segmentio-logo@1.1.0/images/logo.svg);
   margin: .02em 0 .04em 0;
 }
 
 .logo[data-logo="Segment.io"][data-color="black"] > * {
-  background-image: url(/components/segmentio-logo@1.1.0/images/logo-black.svg);
+  background-image: url(components/segmentio-logo@1.1.0/images/logo-black.svg);
 }
 
 .logo[data-logo="Segment.io"][data-color="white"] > * {
-  background-image: url(/components/segmentio-logo@1.1.0/images/logo-white.svg);
+  background-image: url(components/segmentio-logo@1.1.0/images/logo-white.svg);
 }
 
 /**
@@ -579,16 +579,16 @@ p > code {
 }
 
 .logo[data-logo="Segment.io"][data-variation="icon"] > * {
-  background-image: url(/components/segmentio-logo@1.1.0/images/icon.svg);
+  background-image: url(components/segmentio-logo@1.1.0/images/icon.svg);
   margin: -.3em;
 }
 
 .logo[data-logo="Segment.io"][data-variation="icon"][data-color="black"] > * {
-  background-image: url(/components/segmentio-logo@1.1.0/images/icon-black.svg);
+  background-image: url(components/segmentio-logo@1.1.0/images/icon-black.svg);
 }
 
 .logo[data-logo="Segment.io"][data-variation="icon"][data-color="white"] > * {
-  background-image: url(/components/segmentio-logo@1.1.0/images/icon-white.svg);
+  background-image: url(components/segmentio-logo@1.1.0/images/icon-white.svg);
 }
 
 /**
@@ -637,25 +637,25 @@ p > code {
 }
 
 .logo[data-logo='Lapwing Labs'] > * {
-  background-image: url('/lib/lapwing-labs-logo/images/logo.svg');
+  background-image: url('lib/lapwing-labs-logo/images/logo.svg');
   margin: -.2em 0 -.05em 0;
 }
 
 .logo[data-logo='Lapwing Labs'][data-color='black'] > * {
-  background-image: url('/lib/lapwing-labs-logo/images/logo-black.svg');
+  background-image: url('lib/lapwing-labs-logo/images/logo-black.svg');
 }
 
 .logo[data-logo='Lapwing Labs'][data-color='white'] > * {
-  background-image: url('/lib/lapwing-labs-logo/images/logo-white.svg');
+  background-image: url('lib/lapwing-labs-logo/images/logo-white.svg');
 }
 
 @font-face {
   font-family: 'Blanch Condensed';
-  src: url('/lib/blanch/blanch-condensed-webfont.eot');
-  src: url('/lib/blanch/blanch-condensed-webfont.eot') format('embedded-opentype'),
-       url('/lib/blanch/blanch-condensed-webfont.woff') format('woff'),
-       url('/lib/blanch/blanch-condensed-webfont.ttf') format('truetype'),
-       url('/lib/blanch/blanch-condensed-webfont.svg') format('svg');
+  src: url('lib/blanch/blanch-condensed-webfont.eot');
+  src: url('lib/blanch/blanch-condensed-webfont.eot') format('embedded-opentype'),
+       url('lib/blanch/blanch-condensed-webfont.woff') format('woff'),
+       url('lib/blanch/blanch-condensed-webfont.ttf') format('truetype'),
+       url('lib/blanch/blanch-condensed-webfont.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -667,7 +667,7 @@ p > code {
 .Footer {
   position: relative;
   text-align: center;
-  background: url('/lib/footer/background.jpg') center center no-repeat;
+  background: url('lib/footer/background.jpg') center center no-repeat;
   background-size: cover;
   padding: 12em 0 8em;
   color: white;
@@ -740,25 +740,25 @@ p > code {
 }
 
 .logo[data-logo="Duo"] > * {
-  background-image: url(/components/duojs-logo@0.0.2/images/logo.svg);
+  background-image: url(components/duojs-logo@0.0.2/images/logo.svg);
   margin: 0 0 0 0;
 }
 
 .logo[data-logo="Duo"][data-color="black"] > * {
-  background-image: url(/components/duojs-logo@0.0.2/images/logo-black.svg);
+  background-image: url(components/duojs-logo@0.0.2/images/logo-black.svg);
 }
 
 .logo[data-logo="Duo"][data-color="white"] > * {
-  background-image: url(/components/duojs-logo@0.0.2/images/logo-white.svg);
+  background-image: url(components/duojs-logo@0.0.2/images/logo-white.svg);
 }
 
 @font-face {
   font-family: 'Blanch Condensed';
-  src: url('/lib/blanch/blanch-condensed-webfont.eot');
-  src: url('/lib/blanch/blanch-condensed-webfont.eot') format('embedded-opentype'),
-       url('/lib/blanch/blanch-condensed-webfont.woff') format('woff'),
-       url('/lib/blanch/blanch-condensed-webfont.ttf') format('truetype'),
-       url('/lib/blanch/blanch-condensed-webfont.svg') format('svg');
+  src: url('lib/blanch/blanch-condensed-webfont.eot');
+  src: url('lib/blanch/blanch-condensed-webfont.eot') format('embedded-opentype'),
+       url('lib/blanch/blanch-condensed-webfont.woff') format('woff'),
+       url('lib/blanch/blanch-condensed-webfont.ttf') format('truetype'),
+       url('lib/blanch/blanch-condensed-webfont.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -776,7 +776,7 @@ p > code {
   position: relative;
   overflow: hidden;
   text-align: center;
-  background: url('/lib/header/background.jpg') center center no-repeat;
+  background: url('lib/header/background.jpg') center center no-repeat;
   background-size: cover;
   color: white;
   padding: 12em 2em 20em;
