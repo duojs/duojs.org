@@ -1,5 +1,55 @@
 
 
+## Getting Started
+
+Duo is a next-generation package manager that blends some of the best ideas from [Component](https://github.com/component/component), [Browserify](https://github.com/substack/node-browserify) and [Go](http://go-lang.com/) to make writing front-end code painless.
+
+To start just write normal Javascript, requiring dependencies straight from the file system or from GitHub as you need them:
+
+```js
+var uid = require('matthewmueller/uid');
+var fmt = require('yields/fmt');
+
+var msg = fmt('Your unique ID is %s!', uid());
+window.alert(msg);
+```
+
+Then use `duo` to install your dependencies and build your file:
+
+```
+$ duo index.js > build.js
+```
+
+Finally, drop a single `<script>` onto your page and you're done!
+
+```html
+<script src="build.js"></script>
+```
+
+Same goes for CSS! You can require dependencies and assets from the file system or straight from GitHub:
+
+```css
+@import 'necolas/normalize.css';
+
+body {
+  color: teal;
+  background: url('./background-image.jpg');
+}
+```
+
+Then bundle up your CSS with `duo`:
+
+```
+$ duo index.css > build.css
+```
+
+And add your stylesheet to your page!
+
+```html
+<link rel="stylesheet" href="build.css">
+```
+
+
 ## Philosophy
 
 Duo was designed from the ground up to grow alongside your application, making your three main workflows incredibly simple:
@@ -108,7 +158,7 @@ $ duo app/{home,about,admin}/index.{js,css}
 If Duo discovers an asset like an image or font along the way, it will automatically include it in your `build/` directory. Say we have the following image in our CSS file:
 
 ```css
-@import 'necolas/normalize';
+@import 'necolas/normalize.css';
 
 body {
   background: url('./images/duo.png');
@@ -118,7 +168,7 @@ body {
 Duo will transform this file to:
 
 ```css
-@import 'necolas/normalize';
+@import 'necolas/normalize.css';
 
 body {
   background: url('/images/duo.png');
@@ -127,3 +177,23 @@ body {
 
 And symlink `duo.png` to `build/images/duo.png`, so that you can serve the entire `build/` directory from your web server.
 
+
+## Examples
+
+To see some more complex examples of Duo in the wild, check out any of these repositories on GitHub:
+
+  - [duojs/duojs.org](https://github.com/duojs/duojs.org)
+  - [duojs/logo](https://github.com/duojs/logo)
+  - [segmentio/analytics.js](https://github.com/segmentio/analytics.js)
+
+
+## Community
+
+For more information, read through some of the resources put together by the folks in the Duo community:
+
+  - [GitHub Repository](https://github.com/duojs/duo)
+  - [Command Line Usage](https://github.com/duojs/duo/blob/master/docs/cli.md)
+  - [Javascript API](https://github.com/duojs/duo/blob/master/docs/api.md)
+  - [FAQ](https://github.com/duojs/duo/blob/master/docs/faq.md)
+  - [Mailing List](https://groups.google.com/forum/#!forum/duojs)
+  - `#duojs` on freenode
