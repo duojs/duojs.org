@@ -1,8 +1,9 @@
+
 <!doctype html>
 <html>
   <head>
     <title>Duo</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="build/index.css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,300italic" >
   </head>
   <body>
@@ -19,7 +20,130 @@
       <a class="Header-github" href="https://github.com/duojs/duo">View on GitHub</a>
     </header>
     <main>
-      <article>{{{ contents }}}</article>
+      <article><h2 id="getting-started">Getting Started</h2>
+<p>Duo is a next-generation package manager that blends the best ideas from <a href="https://github.com/component/component">Component</a>, <a href="https://github.com/substack/node-browserify">Browserify</a> and <a href="http://go-lang.com/">Go</a> to make organizing and writing front-end code quick and painless.</p>
+<p>Install Duo straight from npm with:</p>
+<pre><code>$ npm install -g duo
+</code></pre><p>To get started just write normal Javascript, requiring dependencies straight from the file system or from GitHub as you need them:</p>
+<pre><code class="lang-js">var uid = require(&#39;matthewmueller/uid&#39;);
+var fmt = require(&#39;yields/fmt&#39;);
+
+var msg = fmt(&#39;Your unique ID is %s!&#39;, uid());
+window.alert(msg);
+</code></pre>
+<p>Then use <code>duo</code> to install your dependencies and build your file:</p>
+<pre><code>$ duo index.js &gt; build.js
+</code></pre><p>Finally, drop a single <code>&lt;script&gt;</code> onto your page and you’re done!</p>
+<pre><code class="lang-html">&lt;script src=&quot;build.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>Same goes for CSS! You can require dependencies and assets from the file system or straight from GitHub:</p>
+<pre><code class="lang-css">@import &#39;necolas/normalize.css&#39;;
+
+body {
+  color: teal;
+  background: url(&#39;./background-image.jpg&#39;);
+}
+</code></pre>
+<p>Then bundle up your CSS with <code>duo</code>:</p>
+<pre><code>$ duo index.css &gt; build.css
+</code></pre><p>And add your bundled-up stylesheet to your page!</p>
+<pre><code class="lang-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;build.css&quot;&gt;
+</code></pre>
+<h2 id="features">Features</h2>
+<ol>
+<li>has first-class support for Javascript, HTML and CSS</li>
+<li>exposes a unix-y command line interface</li>
+<li>pulls source directly from GitHub with semantic versioning</li>
+<li>supports source transforms, like Coffeescript or Sass</li>
+<li>does not require a manifest</li>
+</ol>
+<h2 id="philosophy">Philosophy</h2>
+<p>Duo was designed from the ground up to grow alongside your application, making your three main workflows incredibly simple:</p>
+<ol>
+<li>creating quick proof of concepts</li>
+<li>writing modular components</li>
+<li>building large web applications</li>
+</ol>
+<h2 id="i-proof-of-concepts">I. Proof of Concepts</h2>
+<p>As developers, we often need to test out an idea or isolate a bug. One of the big issues with existing package managers is that you cannot use your package manager without a lot of boilerplate files like <code>package.json</code> or <code>component.json</code>.</p>
+<p>Duo removes this boilerplate, letting you <code>require</code> packages straight from your source code:</p>
+<pre><code class="lang-js">var events = require(&#39;component/events&#39;);
+var uid = require(&#39;matthewmueller/uid&#39;);
+</code></pre>
+<p>You can also include versions, branches or paths:</p>
+<pre><code class="lang-js">var reactive = require(&#39;component/reactive@0.14.x&#39;);
+var tip = require(&#39;component/tip@master&#39;);
+var shortcuts = require(&#39;yields/shortcuts@0.0.1:/index.js&#39;);
+</code></pre>
+<p>And the same goes for CSS with <code>import</code>:</p>
+<pre><code class="lang-css">@import &#39;necolas/normalize.css&#39;;
+@import &#39;twbs/bootstrap@v3.2.0:dist/css/bootstrap.css&#39;;
+</code></pre>
+<p>You can even directly require <code>.html</code> or <code>.json</code> files:</p>
+<pre><code class="lang-js">var template = require(&#39;./menu.html&#39;);
+var schema = require(&#39;./schema.json&#39;);
+</code></pre>
+<p>Duo will take care of the rest, transforming the <code>.html</code> into a Javascript string, and <code>.json</code> into a Javascript object.</p>
+<p>When you’re ready to build your files, just run:</p>
+<pre><code>$ duo in.js &gt; out.js
+$ duo in.css &gt; out.css
+</code></pre><h2 id="ii-components">II. Components</h2>
+<p>A successful package manager needs to have a strong component ecosystem. Duo supports all of the existing <a href="https://github.com/component/component/wiki/Components">Component packages</a> out of the box. And, since Duo can load from paths, it supports all <a href="http://bower.io/search/">Bower packages</a> too. <em>There are even plans to support <a href="https://www.npmjs.org/browse/keyword/browser">Browserify packages</a> as well.</em></p>
+<p>We’re hoping to bridge the gap between all the different package managers and come up with a solution that works for everyone.</p>
+<p>To create your own public component, just add a <code>component.json</code> to your repository:</p>
+<pre><code class="lang-json">{
+  &quot;name&quot;: &quot;duo-component&quot;,
+  &quot;version&quot;: &quot;0.0.1&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;dependencies&quot;: {
+    &quot;component/tip&quot;: &quot;1.x&quot;,
+    &quot;jkroso/computed-style&quot;: &quot;0.1.0&quot;
+  }
+}
+</code></pre>
+<p>And then publish your component on GitHub, so that others can install it by simply requiring it into their application:</p>
+<pre><code class="lang-js">var thing = require(&#39;your/duo-component&#39;);
+</code></pre>
+<p>If you’re coming from the Component community, you’ll notice that we no longer need to add <code>scripts</code>, <code>styles</code> or <code>templates</code>. Duo handles all of this for you, walking the dependency tree like Browserify and including everything you need automatically, for both Javascript and CSS!</p>
+<h2 id="iii-web-applications">III. Web Applications</h2>
+<p>In order for a package manager to be truly useful, it needs to scale to accommodate building entire web applications. Once again, Duo makes this process seamless.</p>
+<p>Duo allows for building multiple pages at once, so that you can split up your application into different bundles and take advantage of browser caching. To build from multiple entry files, just pass more than one entry into <code>duo</code>:</p>
+<pre><code>$ duo app/libraries.js app/common.js app/home.js app/admin.js
+</code></pre><p>You can even use brace expansion:</p>
+<pre><code>$ duo app/{home,about,admin}/index.{js,css}
+</code></pre><p>If Duo discovers an asset like an image or font along the way, it will automatically include it in your <code>build/</code> directory. Say we have the following image in our CSS file:</p>
+<pre><code class="lang-css">@import &#39;necolas/normalize.css&#39;;
+
+body {
+  background: url(&#39;./images/duo.png&#39;);
+}
+</code></pre>
+<p>Duo will transform this file to:</p>
+<pre><code class="lang-css">@import &#39;necolas/normalize.css&#39;;
+
+body {
+  background: url(&#39;/images/duo.png&#39;);
+}
+</code></pre>
+<p>And symlink <code>duo.png</code> to <code>build/images/duo.png</code>, so that you can serve the entire <code>build/</code> directory from your web server.</p>
+<h2 id="examples">Examples</h2>
+<p>To see some more complex examples of Duo in the wild, check out any of these repositories on GitHub:</p>
+<ul>
+<li><a href="https://github.com/duojs/duojs.org">duojs/duojs.org</a></li>
+<li><a href="https://github.com/duojs/logo">duojs/logo</a></li>
+<li><a href="https://github.com/segmentio/analytics.js">segmentio/analytics.js</a></li>
+</ul>
+<h2 id="community">Community</h2>
+<p>For more information, read through some of the resources put together by the folks in the Duo community:</p>
+<ul>
+<li><a href="https://github.com/duojs/duo">GitHub Repository</a></li>
+<li><a href="https://github.com/duojs/duo/blob/master/docs/cli.md">Command Line Usage</a></li>
+<li><a href="https://github.com/duojs/duo/blob/master/docs/api.md">Javascript API</a></li>
+<li><a href="https://github.com/duojs/duo/blob/master/docs/faq.md">FAQ</a></li>
+<li><a href="https://groups.google.com/forum/#!forum/duojs">Mailing List</a></li>
+<li><code>#duojs</code> on freenode</li>
+</ul>
+</article>
     </main>
     <footer class="Footer">
       <p>Brought to you by</p>
@@ -33,6 +157,6 @@
          data-color="white"
          href="https://segment.io"><span>Segment.io</span></a>
     </footer>
-    <script src="index.js"></script>
+    <script src="build/index.js"></script>
   </body>
 </html>

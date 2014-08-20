@@ -1,4 +1,5 @@
 {
+  "destination": ".",
   "plugins": {
     "metalsmith-markdown": {
       "smartypants": true,
@@ -8,7 +9,7 @@
       "directory": "./",
       "engine": "handlebars",
       "pattern": "*.html",
-      "default": "index.html"
+      "default": "templates/index.html"
     },
     "metalsmith-permalinks": {}
   }
