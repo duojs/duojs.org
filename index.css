@@ -1,0 +1,42 @@
+
+/**
+ * Dependencies.
+ */
+
+@import 'necolas/normalize.css';
+
+/**
+ * Variables.
+ */
+
+:root {
+  --white: #FEFFF8;
+  --dark-white: #FEFAF1;
+  --darker-white: #F5F2EC;
+
+  --green: #3FA369;
+  --brown: #B18840;
+
+  --black: #010921;
+  --light-black: #273C52;
+  --lighter-black: #596C80;
+}
+
+/**
+ * Base.
+ */
+
+html {
+  font: 300 21px/1.4 'Roboto', sans-serif;
+  color: var(--light-black);
+  background-color: var(--white);
+}
+
+/**
+ * Locals.
+ */
+
+@import './lib/article';
+@import './lib/footer';
+@import './lib/header';
+@import './lib/highlight';

@@ -1,0 +1,41 @@
+
+/**
+ * Dependencies.
+ */
+
+@import 'segmentio/logo';
+@import '../lapwing-labs-logo';
+@import '../blanch';
+
+/**
+ * Footer.
+ */
+
+.Footer {
+  position: relative;
+  text-align: center;
+  background: url('./background.jpg') center center no-repeat;
+  background-size: cover;
+  padding: 12em 0 8em;
+  color: white;
+  font-size: 1.5em;
+}
+
+.Footer::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100px;
+  background: linear-gradient(to top, transparent, var(--white));
+}
+
+.Footer p {
+  font-family: 'Blanch Condensed';
+  text-shadow: 0 1px color(var(--darker-white) shade(25%));
+}
+
+.Footer a {
+  font-size: 1.5em;
+}

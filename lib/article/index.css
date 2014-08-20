@@ -1,0 +1,72 @@
+
+/**
+ * Dependencies.
+ */
+
+@import '../blanch';
+
+/**
+ * Article.
+ */
+
+article {
+  max-width: 30em;
+  padding: 2em;
+  margin: 0 auto;
+}
+
+ol {
+  list-style-type: upper-roman;
+}
+
+a {
+  color: var(--green);
+}
+
+a:hover {
+  color: color(var(--green) shade(20%));
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -1px;
+  text-align: center;
+  font-family: 'Blanch Condensed', 'Impact', sans-serif;
+  margin-bottom: .5em;
+}
+
+h2 {
+  font-size: 2.5em;
+  font-weight: 400;
+}
+
+* + h2 {
+  padding-top: 4em;
+}
+
+h3 {
+  font-size: 1.25em;
+  font-weight: 400;
+  padding-top: 1em;
+}
+
+pre {
+  font-size: .7em;
+  padding: 1.5em;
+  border-left: 4px solid color(var(--white) shade(6%));
+  background-color: color(var(--white) shade(2.5%));
+  border-radius: .3em;
+}
+
+p > code {
+  position: relative;
+  top: -1px;
+  padding: .25em .35em;
+  font-size: .75em;
+  background-color: color(var(--white) shade(3.5%));
+  border-radius: .3em;
+}

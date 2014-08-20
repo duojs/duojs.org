@@ -1,0 +1,18 @@
+
+/**
+ * Code highlighting.
+ */
+
+.Highlight-at-rule,
+.Highlight-keyword {
+  color: var(--green);
+}
+
+.Highlight-string,
+.Highlight-number {
+  color: var(--brown);
+}
+
+.Highlight-operator {
+  color: var(--lighter-black);
+}
