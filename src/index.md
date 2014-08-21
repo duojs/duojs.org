@@ -31,6 +31,8 @@ var msg = fmt('Your unique ID is %s!', uid());
 window.alert(msg);
 ```
 
+That `matthewmueller/uid` will pull the dependency [straight from GitHub](https://github.com/matthewmueller/uid), without you needing to edit any package manifest file!
+
 Then use `duo` to install your dependencies and build your file:
 
 ```
