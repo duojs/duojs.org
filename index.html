@@ -21,11 +21,17 @@
       <a class="Header-github" href="https://github.com/duojs/duo">View on GitHub</a>
     </header>
     <main>
-      <article><h2 id="getting-started">Getting Started</h2>
-<p>Duo is a next-generation package manager that blends the best ideas from <a href="https://github.com/component/component">Component</a>, <a href="https://github.com/substack/node-browserify">Browserify</a> and <a href="http://go-lang.com/">Go</a> to make organizing and writing front-end code quick and painless.</p>
-<p>Install Duo straight from npm with:</p>
+      <article><p>Duo is a next-generation package manager that blends the best ideas from <a href="https://github.com/component/component">Component</a>, <a href="https://github.com/substack/node-browserify">Browserify</a> and <a href="http://go-lang.com/">Go</a> to make organizing and writing front-end code quick and painless.</p>
+<h2 id="install-it">Install It</h2>
+<p>Install Duo straight from <code>npm</code> with:</p>
 <pre><code>$ npm install -g duo
-</code></pre><p>To get started just write normal Javascript, requiring dependencies straight from the file system or from GitHub as you need them:</p>
+</code></pre><p>Duo requires you to authenticate with GitHub to increase your rate limit and allow you to pull from private repositories. To do that, add the following entry to your <code>~/.netrc</code> file:</p>
+<pre><code>machine api.github.com
+  login &lt;username&gt;
+  password &lt;token&gt;
+</code></pre><p>You can quickly create a new GitHub <code>token</code> <a href="https://github.com/settings/tokens/new">here</a>. </p>
+<h2 id="getting-started">Getting Started</h2>
+<p>To get started just write normal Javascript, requiring dependencies straight from the file system or from GitHub as you need them:</p>
 <pre><code class="lang-js">var uid = require(&#39;matthewmueller/uid&#39;);
 var fmt = require(&#39;yields/fmt&#39;);
 

@@ -1,14 +1,25 @@
 
-
-## Getting Started
-
 Duo is a next-generation package manager that blends the best ideas from [Component](https://github.com/component/component), [Browserify](https://github.com/substack/node-browserify) and [Go](http://go-lang.com/) to make organizing and writing front-end code quick and painless.
 
-Install Duo straight from npm with:
+
+## Install It
+
+Install Duo straight from `npm` with:
 
 ```
 $ npm install -g duo
 ```
+
+Duo requires you to authenticate with GitHub to increase your rate limit and allow you to pull from private repositories. To do that, add the following entry to your `~/.netrc` file:
+
+    machine api.github.com
+      login <username>
+      password <token>
+
+You can quickly create a new GitHub `token` [here](https://github.com/settings/tokens/new). 
+
+
+## Getting Started
 
 To get started just write normal Javascript, requiring dependencies straight from the file system or from GitHub as you need them:
 
