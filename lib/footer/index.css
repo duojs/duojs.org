@@ -28,7 +28,7 @@
   right: 0;
   top: 0;
   height: 100px;
-  background: linear-gradient(to top, transparent, var(--white));
+  background: linear-gradient(to top, color(var(--white) alpha(0%)), var(--white));
 }
 
 .Footer p {

@@ -681,8 +681,8 @@ p > code {
   right: 0;
   top: 0;
   height: 100px;
-  background: -webkit-linear-gradient(bottom, transparent, #FEFFF8);
-  background: linear-gradient(to top, transparent, #FEFFF8);
+  background: -webkit-linear-gradient(bottom, rgba(254, 255, 248, 0), #FEFFF8);
+  background: linear-gradient(to top, rgba(254, 255, 248, 0), #FEFFF8);
 }
 
 .Footer p {
@@ -790,8 +790,8 @@ p > code {
   right: 0;
   bottom: 0;
   height: 100px;
-  background: -webkit-linear-gradient(top, transparent, #FEFFF8);
-  background: linear-gradient(to bottom, transparent, #FEFFF8);
+  background: -webkit-linear-gradient(top, rgba(254, 255, 248, 0), #FEFFF8);
+  background: linear-gradient(to bottom, rgba(254, 255, 248, 0), #FEFFF8);
 }
 
 /**
