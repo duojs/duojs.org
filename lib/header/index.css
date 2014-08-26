@@ -33,7 +33,7 @@
   right: 0;
   bottom: 0;
   height: 100px;
-  background: linear-gradient(to bottom, transparent, var(--white));
+  background: linear-gradient(to bottom, color(var(--white) alpha(0%)), var(--white));
 }
 
 /**
