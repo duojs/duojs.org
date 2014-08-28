@@ -12,6 +12,8 @@ The [duojs.org](http://duojs.org) website.
 
 ## Developing
 
+Make sure you're running Node version `0.11` or greater.
+
 Inside the repository folder, just run:
 
     $ make server
