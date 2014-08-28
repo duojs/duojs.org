@@ -80,12 +80,12 @@ And add your bundled-up stylesheet to your page!
 
 Duo was designed from the ground up to grow alongside your application, making your three main workflows incredibly simple:
 
-  1. creating quick proof of concepts
+  1. creating quick proofs of concept
   2. writing modular components
   3. building large web applications
 
 
-## I. Proof of Concepts
+## I. Proofs of Concept
 
 As developers, we often need to test out an idea or isolate a bug. One of the big issues with existing package managers is that you cannot use your package manager without a lot of boilerplate files like `package.json` or `component.json`.
 
