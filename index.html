@@ -39,6 +39,9 @@ var msg = fmt(&#39;Your unique ID is %s!&#39;, uid());
 window.alert(msg);
 </code></pre>
 <p>That <code>matthewmueller/uid</code> will pull the dependency <a href="https://github.com/matthewmueller/uid">straight from GitHub</a>, without you needing to edit any package manifest file!</p>
+<p>You can also require modules straight from your filesystem:</p>
+<pre><code class="lang-js">var modal = require(&#39;./modal/index.js&#39;);
+</code></pre>
 <p>Then use <code>duo</code> to install your dependencies and build your file:</p>
 <pre><code>$ duo index.js &gt; build.js
 </code></pre><p>Finally, drop a single <code>&lt;script&gt;</code> onto your page and you’re done!</p>
@@ -46,6 +49,7 @@ window.alert(msg);
 </code></pre>
 <p>Same goes for CSS! You can require dependencies and assets from the file system or straight from GitHub:</p>
 <pre><code class="lang-css">@import &#39;necolas/normalize.css&#39;;
+@import &#39;./base-layout/index.css&#39;
 
 body {
   color: teal;

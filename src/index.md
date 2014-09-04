@@ -33,6 +33,12 @@ window.alert(msg);
 
 That `matthewmueller/uid` will pull the dependency [straight from GitHub](https://github.com/matthewmueller/uid), without you needing to edit any package manifest file!
 
+You can also require modules straight from your filesystem:
+
+```js
+var modal = require('./modal/index.js');
+```
+
 Then use `duo` to install your dependencies and build your file:
 
 ```
@@ -49,6 +55,7 @@ Same goes for CSS! You can require dependencies and assets from the file system 
 
 ```css
 @import 'necolas/normalize.css';
+@import './base-layout/index.css';
 
 body {
   color: teal;
