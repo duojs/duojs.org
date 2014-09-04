@@ -31,7 +31,7 @@
   password &lt;token&gt;
 </code></pre><p>You can quickly create a new GitHub <code>token</code> <a href="https://github.com/settings/tokens/new">here</a>.</p>
 <h2 id="getting-started">Getting Started</h2>
-<p>To get started just write normal Javascript, requiring dependencies straight from the file system or from GitHub as you need them:</p>
+<p>To get started just write normal Javascript, requiring from GitHub as you need them:</p>
 <pre><code class="lang-js">var uid = require(&#39;matthewmueller/uid&#39;);
 var fmt = require(&#39;yields/fmt&#39;);
 
@@ -39,7 +39,7 @@ var msg = fmt(&#39;Your unique ID is %s!&#39;, uid());
 window.alert(msg);
 </code></pre>
 <p>That <code>matthewmueller/uid</code> will pull the dependency <a href="https://github.com/matthewmueller/uid">straight from GitHub</a>, without you needing to edit any package manifest file!</p>
-<p>You can also require modules straight from your filesystem:</p>
+<p>You can also require modules straight from your file system:</p>
 <pre><code class="lang-js">var modal = require(&#39;./modal/index.js&#39;);
 </code></pre>
 <p>Then use <code>duo</code> to install your dependencies and build your file:</p>

@@ -21,7 +21,7 @@ You can quickly create a new GitHub `token` [here](https://github.com/settings/t
 
 ## Getting Started
 
-To get started just write normal Javascript, requiring dependencies straight from the file system or from GitHub as you need them:
+To get started just write normal Javascript, requiring from GitHub as you need them:
 
 ```js
 var uid = require('matthewmueller/uid');
@@ -33,7 +33,7 @@ window.alert(msg);
 
 That `matthewmueller/uid` will pull the dependency [straight from GitHub](https://github.com/matthewmueller/uid), without you needing to edit any package manifest file!
 
-You can also require modules straight from your filesystem:
+You can also require modules straight from your file system:
 
 ```js
 var modal = require('./modal/index.js');
