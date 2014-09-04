@@ -55,7 +55,7 @@ Same goes for CSS! You can require dependencies and assets from the file system 
 
 ```css
 @import 'necolas/normalize.css';
-@import './base-layout/index.css';
+@import './layout/layout.css';
 
 body {
   color: teal;
