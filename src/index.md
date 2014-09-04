@@ -51,7 +51,7 @@ Finally, drop a single `<script>` onto your page and you're done!
 <script src="build.js"></script>
 ```
 
-Same goes for CSS! You can require dependencies and assets from the file system or straight from GitHub:
+Same goes for CSS! You can require dependencies and assets straight from GitHub or from the file system:
 
 ```css
 @import 'necolas/normalize.css';
