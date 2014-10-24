@@ -10,15 +10,6 @@ Install Duo straight from `npm` with:
 $ npm install -g duo
 ```
 
-Duo requires you to authenticate with GitHub to increase your rate limit and allow you to pull from private repositories. To do that, add the following entry to your `~/.netrc` file:
-
-    machine api.github.com
-      login <username>
-      password <token>
-
-You can quickly create a new GitHub `token` [here](https://github.com/settings/tokens/new).
-
-
 ## Getting Started
 
 To get started just write normal Javascript, requiring from GitHub as you need them:
