@@ -38,9 +38,9 @@ window.alert(msg);
 <pre><code class="lang-js">var modal = require(&#39;./modal/index.js&#39;);
 </code></pre>
 <p>Then use <code>duo</code> to install your dependencies and build your file:</p>
-<pre><code>$ duo index.js &gt; build.js
+<pre><code>$ duo index.js
 </code></pre><p>Finally, drop a single <code>&lt;script&gt;</code> onto your page and you’re done!</p>
-<pre><code class="lang-html">&lt;script src=&quot;build.js&quot;&gt;&lt;/script&gt;
+<pre><code class="lang-html">&lt;script src=&quot;build/index.js&quot;&gt;&lt;/script&gt;
 </code></pre>
 <p>Same goes for CSS! You can require dependencies and assets straight from GitHub or from the file system:</p>
 <pre><code class="lang-css">@import &#39;necolas/normalize.css&#39;;
@@ -52,9 +52,9 @@ body {
 }
 </code></pre>
 <p>Then bundle up your CSS with <code>duo</code>:</p>
-<pre><code>$ duo index.css &gt; build.css
+<pre><code>$ duo index.css
 </code></pre><p>And add your bundled-up stylesheet to your page!</p>
-<pre><code class="lang-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;build.css&quot;&gt;
+<pre><code class="lang-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;build/index.css&quot;&gt;
 </code></pre>
 <h2 id="features">Features</h2>
 <ol>
@@ -92,9 +92,9 @@ var schema = require(&#39;./schema.json&#39;);
 </code></pre>
 <p>Duo will take care of the rest, transforming the <code>.html</code> into a Javascript string, and <code>.json</code> into a Javascript object.</p>
 <p>When you’re ready to build your files, just run:</p>
-<pre><code>$ duo in.js &gt; out.js
-$ duo in.css &gt; out.css
-</code></pre><h2 id="ii-components">II. Components</h2>
+<pre><code>$ duo index.js index.css
+</code></pre><p>The new files will be located in the newly created <code>build/</code> directory, using the same structure as your project.</p>
+<h2 id="ii-components">II. Components</h2>
 <p>A successful package manager needs to have a strong component ecosystem. Duo supports all of the existing <a href="https://github.com/component/component/wiki/Components">Component packages</a> out of the box. And, since Duo can load from paths, it supports many <a href="http://bower.io/search/">Bower packages</a> too. <em>There are even plans to support <a href="https://www.npmjs.org/browse/keyword/browser">Browserify packages</a> as well.</em></p>
 <p>We’re hoping to bridge the gap between all the different package managers and come up with a solution that works for everyone.</p>
 <p>To create your own public component, just add a <code>component.json</code> to your repository:</p>
