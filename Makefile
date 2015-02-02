@@ -41,11 +41,11 @@ build-metalsmith: node_modules $(src)
 
 # Build the Javascript source with Duo.
 build/index.js: node_modules index.js $(js) $(html) $(json)
-	@$(duo) index.js > build/index.js
+	@$(duo) --stdout index.js > build/index.js
 
 # Build the CSS source with Duo and Myth.
 build/index.css: node_modules index.css $(css)
-	@$(duo) -c index.css | $(myth) > build/index.css
+	@$(duo) --stdout -c index.css | $(myth) > build/index.css
 
 node_modules: package.json
 	@npm install

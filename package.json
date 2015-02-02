@@ -6,7 +6,7 @@
   "dependencies": {
     "chalk": "^0.5.1",
     "co-exec": "^1.1.0",
-    "duo": "~0.7.7",
+    "duo": "^0.9.2",
     "handlebars": "^2.0.0-alpha.4",
     "koa": "^0.8.2",
     "koa-logger": "^1.2.2",
