@@ -1,23 +1,28 @@
 #!/usr/bin/env node
 
 var chalk = require('chalk');
-var e = require('co-exec');
 var fmt = require('util').format;
-var koa = require('koa');
-var logger = require('koa-logger');
-var serve = require('koa-static');
-var join = require('path').join;
-var root = join(__dirname, '..');
+var serve = require('duo-serve');
+var myth = require('myth');
+var path = require('path');
+var root = path.resolve(__dirname, '..');
 
 /**
  * Make a server that serves the static build and rebuilds on every request.
  */
 
 var port = 8888;
-var server = koa()
-  .use(logger())
-  .use(exec('make build'))
-  .use(serve(root));
+
+var server = serve(root)
+  .title('Duo')
+  .copy(true)
+  .entry('index.js')
+  .entry('index.css')
+  .body('index.html')
+  .hook(function (src, entry) {
+    if (entry.type === 'css') return myth(src);
+    return src;
+  });
 
 /**
  * Listen.
@@ -34,17 +39,3 @@ server.listen(port, function(){
   console.log('  just refresh the page to see what the changes look like!');
   console.log();
 });
-
-/**
- * Koa middleware to execute a `command`.
- *
- * @param {String} cmd
- * @return {Generator}
- */
-
-function exec(cmd) {
-  return function *(next) {
-    yield e(cmd);
-    yield next;
-  };
-}
