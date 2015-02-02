@@ -1,61 +1,65 @@
 
-duo = ./node_modules/.bin/duo
-metalsmith = ./node_modules/.bin/metalsmith
-myth = ./node_modules/.bin/myth
+#
+# Executables.
+#
+
+BIN := node_modules/.bin
+DUO := $(BIN)/duo
+METALSMITH := $(BIN)/metalsmith
+MYTH = $(BIN)/myth
 
 #
 # Source wildcards.
 #
 
-css = $(shell find lib -name '*.css')
-html = $(shell find lib -name '*.html')
-js = $(shell find lib -name '*.js')
-json = $(shell find lib -name '*.json')
-src = $(shell find src)
+SRC = $(wildcard src/*)
+TEMPLATES = $(wildcard tempaltes/*.html)
+JS = index.js $(wildcard lib/*/*.js)
+CSS = index.css $(wildcard lib/*/*.css)
+JSON = $(wildcard lib/*/*.json)
+HTML = $(wildcard lib/*/*.html)
 
 #
 # Default.
 #
 
-default: build
-
-#
-# Tasks.
-#
-
-# Run the server.
-server: node_modules bin/server
-	@node --harmony bin/server
+all: index.html build/index.js build/index.css
 
 #
 # Targets.
 #
 
-# Build with Metalsmith, then build Duo-specific source.
-build: build-metalsmith build/index.js build/index.css
-
 # Build the Metalsmith source.
-build-metalsmith: node_modules $(src)
-	@mkdir -p build
-	@$(metalsmith)
+index.html: node_modules $(SRC) $(TEMPLATES)
+	@$(METALSMITH)
 
-# Build the Javascript source with Duo.
-build/index.js: node_modules index.js $(js) $(html) $(json)
-	@$(duo) index.js > build/index.js
+# Create the build directory.
+build:
+	@mkdir -p $@
+
+# Build the JavaScript source with Duo.
+build/index.js: $(JS) $(HTML) $(JSON) node_modules build
+	@$(DUO) --type js < $< > $@
 
 # Build the CSS source with Duo and Myth.
-build/index.css: node_modules index.css $(css)
-	@$(duo) -c index.css | $(myth) > build/index.css
+build/index.css: $(CSS) node_modules build
+	@$(DUO) --type css < $< | $(MYTH) > $@
 
+# Install npm dependencies and ensure mtime is updated.
 node_modules: package.json
 	@npm install
-	@touch node_modules # make sure mtime is set after installing
+	@touch $@
 
 #
-# Phony targets.
+# Phony targets/tasks.
 #
 
+# Cleanup previous build.
 clean:
-	rm -rf build components
+	rm -rf index.html build components
 
-.PHONY: server clean
+# Run the server.
+server: bin/server node_modules
+	@node --harmony $<
+
+.PHONY: all clean server
