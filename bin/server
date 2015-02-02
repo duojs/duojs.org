@@ -16,7 +16,7 @@ var root = join(__dirname, '..');
 var port = 8888;
 var server = koa()
   .use(logger())
-  .use(exec('make build'))
+  .use(exec('make all'))
   .use(serve(root));
 
 /**
