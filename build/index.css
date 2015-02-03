@@ -548,6 +548,39 @@ p > code {
 
 /**
  * Logo.
+ *
+ * *.logo[data-logo][data-color]
+ *   *
+ */
+
+.logo {
+  margin: 0;
+  /* reset */
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  /* not baseline, so we align up _and_ down */
+  height: 1em;
+  /* keep height constant regardless of innards */
+}
+
+.logo > * {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-indent: -9999px;
+  /* image replacement */
+  direction: ltr;
+  /* make text-indent play nice */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+/**
+ * Logo.
  */
 
 .logo[data-logo="Segment"],
@@ -603,39 +636,6 @@ p > code {
  */
 
 /**
- * Logo.
- *
- * *.logo[data-logo][data-color]
- *   *
- */
-
-.logo {
-  margin: 0;
-  /* reset */
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
-  /* not baseline, so we align up _and_ down */
-  height: 1em;
-  /* keep height constant regardless of innards */
-}
-
-.logo > * {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  text-indent: -9999px;
-  /* image replacement */
-  direction: ltr;
-  /* make text-indent play nice */
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
-}
-
-/**
  * Lapwing Labs logo.
  */
 
@@ -677,7 +677,6 @@ p > code {
   right: 0;
   top: 0;
   height: 100px;
-  background: -webkit-linear-gradient(bottom, rgba(254, 255, 248, 0), #FEFFF8);
   background: linear-gradient(to top, rgba(254, 255, 248, 0), #FEFFF8);
 }
 
@@ -742,7 +741,6 @@ p > code {
   right: 0;
   bottom: 0;
   height: 100px;
-  background: -webkit-linear-gradient(top, rgba(254, 255, 248, 0), #FEFFF8);
   background: linear-gradient(to bottom, rgba(254, 255, 248, 0), #FEFFF8);
 }
 
@@ -797,7 +795,6 @@ p > code {
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-  -webkit-transition: background-color .2s;
   transition: background-color .2s;
 }
 
@@ -830,7 +827,6 @@ p > code {
   background: rgba(255, 255, 255, .15);
   border: 3px solid rgba(255, 255, 255, .5);
   border-radius: 1000px;
-  -webkit-transition: border-color .2s, background-color .2s;
   transition: border-color .2s, background-color .2s;
 }
 
