@@ -133,29 +133,6 @@ A successful package manager needs to have a strong component ecosystem. Duo sup
 
 We're hoping to bridge the gap between all the different package managers and come up with a solution that works for everyone.
 
-To create your own public component, just add a `component.json` to your repository:
-
-```json
-{
-  "name": "duo-component",
-  "version": "0.0.1",
-  "main": "index.js",
-  "dependencies": {
-    "component/tip": "1.x",
-    "jkroso/computed-style": "0.1.0"
-  }
-}
-```
-
-And then publish your component on GitHub, so that others can install it by simply requiring it into their application:
-
-```js
-var thing = require('your/duo-component');
-```
-
-If you're coming from the Component community, you'll notice that we no longer need to add `scripts`, `styles` or `templates`. Duo handles all of this for you, walking the dependency tree like Browserify and including everything you need automatically, for both Javascript and CSS!
-
-
 ## III. Web Applications
 
 In order for a package manager to be truly useful, it needs to scale to accommodate building entire web applications. Once again, Duo makes this process seamless.
