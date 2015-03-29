@@ -133,8 +133,6 @@ A successful package manager needs to have a strong component ecosystem. Duo sup
 
 We're hoping to bridge the gap between all the different package managers and come up with a solution that works for everyone.
 
-To create your own public component, just add a `component.json` to your repository:
-
 ```json
 {
   "name": "duo-component",
