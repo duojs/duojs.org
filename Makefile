@@ -13,7 +13,7 @@ MYTH = $(BIN)/myth
 #
 
 SRC = $(wildcard src/*)
-TEMPLATES = $(wildcard tempaltes/*.html)
+TEMPLATES = $(wildcard templates/*.html)
 JS = index.js $(wildcard lib/*/*.js)
 CSS = index.css $(wildcard lib/*/*.css)
 JSON = $(wildcard lib/*/*.json)
